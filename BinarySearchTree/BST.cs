@@ -82,10 +82,57 @@ namespace BinarySearchTree
                 inorderRec(root.Right);
             }
         }
-       public void inorder()
+        /// <summary>
+        /// for display this Nodes.
+        /// </summary>
+        public void inorder()
         {
             inorderRec(root);
         }
 
+        /// <summary>
+        /// Ifs the exists.
+        /// </summary>
+        /// <param name="root">The root.</param>
+        /// <param name="num">The number.</param>
+        /// <returns></returns>
+        bool ifExists(Node root, int num)
+        {
+            if (root == null)
+            {
+                
+                return false;
+
+            }
+            if (root.Data == num)
+            {
+                
+                return true;
+            }
+
+            bool res1 = ifExists(root.Left, num);
+
+            if (res1)
+                return true;
+
+            bool res2= ifExists(root.Right, num);
+
+            return res2;
+        }
+        /// <summary>
+        /// Searches the specified element.
+        /// </summary>
+        /// <param name="element">The element.</param>
+        public void Search(int element)
+        {
+            if (ifExists(root, element))
+            {
+                Console.WriteLine("elements {0} is present",element);
+            }
+            else {
+                Console.WriteLine("the element {0} is not present",element);
+            }
+        
+        }
     }
 }

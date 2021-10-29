@@ -24,6 +24,8 @@ namespace BinarySearchTree
 
             Console.WriteLine(" After insert node the Binary Tree is:");
             tree.inorder();
+            //searching element is present or not
+            tree.Search(63);
         }
     }
 }
